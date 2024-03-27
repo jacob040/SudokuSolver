@@ -1,6 +1,29 @@
 {% extends "base.html" %}   <!--Uses the base.html template the block down below overrides the block HOME in base.html everything else is the same-->
-{% block title %}Home{% endblock %}
+{% block title %}SudokuSolver
+         <!--HEAD-->
 
+        <!-- Include your JavaScript file -->
+        <script src="/static/sudoku.js"></script>
+
+        <!-- Call the setGame function when the page loads -->
+        <script>
+        // Wait for the DOM content to load
+            document.addEventListener("DOMContentLoaded", function() {
+            setGame(); // Call the function to create the Sudoku board tiles
+            });
+        </script>
+
+{% endblock %}
+
+<!--
+{% block link %}
+   <link rel="stylesheet" href="website/static/home.css">
+{% endblock %}
+-->
 {% block content %}
-<h1>This is the homepage<h1>
+
+<div id="board"></div>
+
+
+ 
 {% endblock %}
