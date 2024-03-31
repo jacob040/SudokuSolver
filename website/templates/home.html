@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+<!--Uses the base.html template the block down below overrides the block HOME in base.html everything else is the same-->
+{% block title %}SudokuSolver
+<!--HEAD-->
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="board"></div>
+
+<!-- Include your JavaScript file -->
+<script src="../static/sudoku.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("DOMContentLoaded");
+        setGame();
+    });
+</script>
+
+{% endblock %}
