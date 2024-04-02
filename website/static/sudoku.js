@@ -24,6 +24,8 @@ var solution = [
 ]
 
 let selectedTile = "";
+let correctCount = 0;
+let incorrectCount = 0;
 
 function setGame() {
     // Board 9x9
@@ -75,6 +77,23 @@ function inputNumber(selectTile, event) {
         number = parseInt(event.key);
         document.getElementById(selectTile).innerText = number;
         console.log("Number: " + number);
+    }
+
+    let rowCol = selectTile.split("-"); //Creates an array with the two digits
+    let row = parseInt(rowCol[0]); // Convert row to integer
+    let col = parseInt(rowCol[1]); // Convert col to integer
+
+    if(number !== null && number === parseInt(solution[row][col])) {
+        correctCount++;
+        console.log("right: " + correctCount);
+        document.getElementById("correct").innerText = "Correct: " + correctCount; // Update correct count on screen
+
+    }
+    else if (number !== parseInt(solution[row][col])) {
+        incorrectCount++;
+        console.log("wrong: " + incorrectCount);
+        document.getElementById("incorrect").innerText = "Incorrect: " + incorrectCount; // Update incorrect count on screen
+
     }
 }
 

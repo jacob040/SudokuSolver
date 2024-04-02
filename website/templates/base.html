@@ -48,6 +48,40 @@
         .vertical-line {
             border-right: 3px solid black;
         }
+
+        #correct {
+            display: inline-block; /* or inline */
+            padding: 5px; /* Optional: Add padding to create space between text and border */
+
+
+            position: relative; /* Position relative to the nearest positioned ancestor */
+            top: 20px; /* Adjust the distance from the board */
+            left: 45%; /* Position it in the center horizontally */
+            transform: translateX(-50%); /* Center it horizontally */
+            width: 20%; /* Make sure it spans the entire width */
+            text-align: left; /* Center the text horizontally */
+
+
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(18, 141, 18);
+        }
+
+        #incorrect {
+            display: inline-block; /* or inline */
+            padding: 5px; /* Optional: Add padding to create space between text and border */
+            
+            position: relative; /* Position relative to the nearest positioned ancestor */
+            top: 20px; /* Adjust the distance from the board */
+            left: 40%; /* Position it in the center horizontally */
+            transform: translateX(-50%); /* Center it horizontally */
+            width: 20%; /* Make sure it spans the entire width */
+            text-align: left; /* Center the text horizontally */
+
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(155, 0, 0);
+        }
     </style>
 
 </head>
