@@ -1,5 +1,5 @@
 
-var board = [
+/* var board = [
     "--74916-5",
     "2---6-3-9",
     "-----7-1-",
@@ -9,7 +9,18 @@ var board = [
     "9-4-7---2",
     "67-83----",
     "81--45---"
-]
+] */
+var board = [
+    "387491625",
+    "241568379",
+    "569327418",
+    "758619234",
+    "123784596",
+    "496253187",
+    "934176852",
+    "675832941",
+    "81294576-"
+] 
 
 var solution = [
     "387491625",
@@ -50,8 +61,6 @@ function setGame() {
 
                 selectedTile = tile.id;
                 tile.classList.add("highlight");
-
-                console.log("Selected Tile: " + selectedTile);
             });
 
             tile.classList.add("tile");
@@ -68,15 +77,26 @@ function setGame() {
 
 }
 
+function checkForWin() {
+    for(let r = 0; r < 9; r++)
+    {
+        for(let c = 0; c < 9; c++)
+        {
+            if(board[r][c] !== solution[r][c]) {
+                return false;
+            }
+        }
+    }
+    console.log("you won yay!");
+    return true;
+}
 
 function inputNumber(selectTile, event) {
     let number = null;
 
-    console.log(event.key);
-    if (event.key >= '0' && event.key <= '9') {
+    if (event.key >= '1' && event.key <= '9') {
         number = parseInt(event.key);
         document.getElementById(selectTile).innerText = number;
-        console.log("Number: " + number);
     }
 
     let rowCol = selectTile.split("-"); //Creates an array with the two digits
@@ -87,15 +107,20 @@ function inputNumber(selectTile, event) {
         correctCount++;
         console.log("right: " + correctCount);
         document.getElementById("correct").innerText = "Correct: " + correctCount; // Update correct count on screen
+        console.log(board[row][col]);
+        board[row][col] = number.toString();
+        console.log(board[row][col]);
 
+        checkForWin();
     }
-    else if (number !== parseInt(solution[row][col])) {
+    else {
         incorrectCount++;
         console.log("wrong: " + incorrectCount);
         document.getElementById("incorrect").innerText = "Incorrect: " + incorrectCount; // Update incorrect count on screen
-
     }
 }
+
+
 
 
 
