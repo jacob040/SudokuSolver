@@ -1,4 +1,4 @@
-/* var board = [
+var board = [
     "--74916-5",
     "2---6-3-9",
     "-----7-1-",
@@ -8,8 +8,8 @@
     "9-4-7---2",
     "67-83----",
     "81--45---"
-] */
-var board = [
+]
+/* var board = [
   "387491625",
   "241568379",
   "569327418",
@@ -19,7 +19,7 @@ var board = [
   "934176852",
   "675832941",
   "81294576-",
-];
+]; */
 
 var solution = [
   "387491625",
@@ -77,7 +77,7 @@ function setGame() {
 
   document.addEventListener("keydown", function (event) {
     if (selectedTile !== "") {
-      arrowMovement(selectedTile, event);
+      selectedTile = arrowMovement(selectedTile, event);
     }
   });
 }
@@ -88,8 +88,8 @@ function arrowMovement(selectedTile, event) {
   let col = parseInt(rowCol[1]); // Convert col to integer
 
 
-  console.log(row + "-" + col);
-  console.log("despues");
+  console.log(selectedTile);
+  console.log("After keydown");
   switch (event.key) {
     case "ArrowLeft": //LEFT
       if (col === 0) {
@@ -123,11 +123,14 @@ function arrowMovement(selectedTile, event) {
       }
       break;
   }
-  console.log(row + "-" + col);
-
+  
   document.getElementById(selectedTile).classList.remove("highlight");  //Remove old highlight
   selectedTile = row + "-" + col;
   document.getElementById(selectedTile).classList.add("highlight"); //Add new highlight
+  
+  console.log(selectedTile);
+  console.log("function terminates");
+  return selectedTile;
 }
 
 function checkForWin() {
